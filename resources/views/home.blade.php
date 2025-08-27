@@ -4,8 +4,8 @@
 <header class="py-5 bg-light border-bottom mb-4">
     <div class="container">
         <div class="text-center my-5">
-            <h1 class="fw-bolder">Blog app!</h1>
-            <p class="lead mb-0">Blog app homepage</p>
+            <h1 class="fw-bolder">A Personal Blog Site</h1>
+            <p class="lead mb-0">Blog app carousel.</p>
         </div>
     </div>
 </header>
@@ -134,7 +134,7 @@
                 <div class="card-header">Side Widget</div>
                 <div class="card-body">
                     <h2 class="text-xl font-semibold mb-4">Categories</h2>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 list-none">
                         <li><a href="#" class="text-gray-600 hover:text-gray-800">Technology</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-gray-800">Design</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-gray-800">Development</a></li>
