@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Blog Home</title>
+    <title>Blog</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet" /> -->
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <!-- @vite('resources/css/app.css') -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
 </head>
 
 <body>
