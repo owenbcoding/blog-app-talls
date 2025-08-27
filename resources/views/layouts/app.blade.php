@@ -7,14 +7,11 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Blog Home</title>
-    <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#!">Blog-app</a>
@@ -34,15 +31,12 @@
 
     @yield('content')
 
-    <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
         </div>
     </footer>
-    <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
     <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 
