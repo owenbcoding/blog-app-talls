@@ -8,9 +8,7 @@
     <meta name="author" content="" />
     <title>Blog Home</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
-    @vite('resources/js/app.js')
-   <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -23,7 +21,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('article') }}">Articles</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                 </ul>
