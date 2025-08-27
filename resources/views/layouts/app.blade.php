@@ -7,25 +7,18 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Blog</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
-    <!-- @vite('resources/css/app.css') -->
-    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">Blog-app</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
-                </ul>
+    <nav class="bg-gray-800">
+        <div class="container mx-auto flex flex-wrap items-center justify-between p-4">
+            <a class="text-white text-xl font-semibold" href="{{ route('home') }}">Blog-app</a>
+            <div class="space-x-4">
+                <a class="text-gray-300 hover:text-white" href="{{ route('home') }}">Blog</a>
+                <a class="text-gray-300 hover:text-white" href="{{ route('about') }}">About</a>
+                <a class="text-gray-300 hover:text-white" href="{{ route('contact') }}">Contact</a>
             </div>
         </div>
     </nav>
@@ -34,13 +27,11 @@
         @yield('content')
     </main>
 
-    <footer class="py-5 bg-dark">
-        <div class="container">
+    <footer class="py-5 bg-gray-800">
+        <div class="container mx-auto">
             <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 
 </html>
