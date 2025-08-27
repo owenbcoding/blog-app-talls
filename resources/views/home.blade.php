@@ -134,7 +134,7 @@
                 <div class="card-header">Side Widget</div>
                 <div class="card-body">
                     <h2 class="text-xl font-semibold mb-4">Categories</h2>
-                    <ul class="space-y-2 list-none">
+                    <ul class="space-y-2">
                         <li><a href="#" class="text-gray-600 hover:text-gray-800">Technology</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-gray-800">Design</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-gray-800">Development</a></li>
