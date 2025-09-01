@@ -13,7 +13,7 @@
 
 <body>
     <nav class="bg-gray-800">
-        <div class="container mx-auto flex flex-wrap items-center justify-between p-4">
+        <div class="container mx-auto flex flex-wrap items-center justify-between p-4 max-w-7xl">
             <a class="text-white text-xl font-semibold" href="{{ route('home') }}">Blog-app</a>
             <div class="space-x-4">
                 <a class="text-gray-300 hover:text-white" href="{{ route('home') }}">Blog</a>
@@ -27,7 +27,7 @@
         @yield('content')
     </main>
 
-    <footer class="py-5 bg-gray-800">
+    <footer class="py-5 bg-gray-800 mt-10">
         <div class="container mx-auto">
             <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
         </div>
