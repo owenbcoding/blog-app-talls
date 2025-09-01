@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="py-5 bg-gray-100 border-b mb-4">
-        <div class="container mx-auto text-center">
+    <header class="py-5 bg-gray-100 border-b mb-4 h-60">
+        <div class="container mx-auto text-center mt-16">
             <h1 class="text-3xl font-bold">A Personal Blog Site</h1>
             <p class="text-lg text-gray-700 mb-0">Blog app carousel.</p>
         </div>
@@ -70,7 +70,7 @@
                 <!-- Pagination -->
                 <nav aria-label="Pagination" class="mt-6">
                     <hr class="mb-4">
-                    <ul class="flex justify-center space-x-2">
+                    <ul class="flex justify-center space-x-2 mt-10">
                         <li><span class="px-3 py-1 bg-gray-200 text-gray-500 rounded cursor-not-allowed">Newer</span></li>
                         <li><a class="px-3 py-1 bg-blue-500 text-white rounded" href="#!">1</a></li>
                         <li><a class="px-3 py-1 bg-gray-200 text-gray-700 rounded" href="#!">2</a></li>
