@@ -22,7 +22,13 @@
             </div>
         </div>
     </nav>
-
+    
+    <header class="py-5 bg-gray-100 border-b mb-4 h-60">
+        <div class="container mx-auto text-center mt-16">
+            <h1 class="text-3xl font-bold">A Personal Blog Site</h1>
+            <p class="text-lg text-gray-700 mb-0">Blog app carousel.</p>
+        </div>
+    </header>
     <main>
         @yield('content')
     </main>
