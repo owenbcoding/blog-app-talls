@@ -13,9 +13,6 @@ class HomeController extends Controller
         $categories = Category::all();
         $posts = Post::with('category')->orderBy('id', 'desc')->get();
         
-        return view('home', [
-            'categories' => $categories,
-            'posts' => $posts
-        ]); 
+        return view('home', compact('categories', 'posts'));
     }
 }
