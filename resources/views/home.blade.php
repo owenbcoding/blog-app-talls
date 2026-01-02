@@ -98,7 +98,7 @@
                     <div class="grid grid-cols-2 gap-2">
                         <ul class="space-y-2">
                             @foreach ($categories as $category)
-                                <li><a href="#!" class="text-gray-600 hover:text-gray-800">{{ $category }}</a></li>
+                                <li><a href="#!" class="text-gray-600 hover:text-gray-800">{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
                         <ul class="space-y-2"></ul>
