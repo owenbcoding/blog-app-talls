@@ -27,7 +27,7 @@
                         <div class="p-4">
                             <div class="text-sm text-gray-500 mb-2">January 1, 2023</div>
                             <h2 class="text-xl font-semibold mb-2"><a href="{{ route('post.show', $post) }}">{{ $post->title }}</h2>
-                            <p class="text-gray-700 mb-4">{{ substr($post->text, 0, 20) }}...</p>
+                            <p class="text-gray-700 mb-4">{{ substr($post->content, 0, 100) }}...</p>
                             <a class="inline-block bg-blue-500 text-white px-4 py-2 rounded" href="#!">Read more →</a>
                         </div>
                     </article>

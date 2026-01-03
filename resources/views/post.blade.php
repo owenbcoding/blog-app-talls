@@ -8,7 +8,7 @@
         <img class="w-full rounded mb-4" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="...">
         <p class="text-gray-600 mb-4">Published on <span class="font-semibold">March 2, 2025</span></p>
         <div class="text-gray-800 space-y-4">
-            <p>{{ $post->text }}</p>
+            <p>{{ $post->content }}</p>
         </div>
     </section>
 </main>

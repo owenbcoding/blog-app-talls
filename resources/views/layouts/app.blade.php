@@ -19,6 +19,17 @@
                 <a class="text-gray-300 hover:text-white" href="{{ route('home') }}">Blog</a>
                 <a class="text-gray-300 hover:text-white" href="{{ route('about') }}">About</a>
                 <a class="text-gray-300 hover:text-white" href="{{ route('contact') }}">Contact</a>
+                
+                @auth
+                    <a class="text-gray-300 hover:text-white" href="{{ route('dashboard') }}">Dashboard</a>
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                        @csrf
+                        <button type="submit" class="text-gray-300 hover:text-white">Logout</button>
+                    </form>
+                @else
+                    <a class="text-gray-300 hover:text-white" href="{{ route('login') }}">Login</a>
+                    <a class="text-gray-300 hover:text-white" href="{{ route('register') }}">Register</a>
+                @endauth
             </div>
         </div>
     </nav>
@@ -40,3 +51,4 @@
     </footer>
 </body>
 </html>
+

@@ -13,10 +13,10 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'Category 1'],
-            ['name' => 'Category 2'],
-            ['name' => 'Category 3'],
-            ['name' => 'Category 4'],
+            ['name' => 'Technology'],
+            ['name' => 'Lifestyle'],
+            ['name' => 'Travel'],
+            ['name' => 'Food'],
         ];
 
         foreach ($categories as $category) {
