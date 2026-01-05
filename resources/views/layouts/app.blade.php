@@ -13,14 +13,14 @@
 
 <body>
     <nav class="bg-gray-800">
-        <div class="container mx-auto flex flex-wrap items-center justify-between p-4 max-w-7xl">
+        <div class="container mx-auto flex flex-wrap items-center justify-between p-4 max-w-8xl">
             <a class="text-white text-xl font-semibold" href="{{ route('home') }}">Blog-app</a>
             <div class="space-x-4">
                 <a class="text-gray-300 hover:text-white" href="{{ route('home') }}">Blog</a>
                 <a class="text-gray-300 hover:text-white" href="{{ route('about') }}">About</a>
                 <a class="text-gray-300 hover:text-white" href="{{ route('contact') }}">Contact</a>
                 
-                @auth
+                <!-- @auth
                     <a class="text-gray-300 hover:text-white" href="{{ route('dashboard') }}">Dashboard</a>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
@@ -29,17 +29,11 @@
                 @else
                     <a class="text-gray-300 hover:text-white" href="{{ route('login') }}">Login</a>
                     <a class="text-gray-300 hover:text-white" href="{{ route('register') }}">Register</a>
-                @endauth
+                @endauth -->
             </div>
         </div>
     </nav>
     
-    <header class="py-5 bg-gray-100 border-b mb-4 h-60">
-        <div class="container mx-auto text-center mt-16">
-            <h1 class="text-3xl font-bold">A Personal Blog Site</h1>
-            <p class="text-lg text-gray-700 mb-0">Blog app carousel.</p>
-        </div>
-    </header>
     <main>
         @yield('content')
     </main>
