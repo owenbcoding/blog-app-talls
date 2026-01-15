@@ -11,12 +11,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form action="{{ route('categories.update', $category) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <input type="text" name="name" value="{{ $category->name }}">
-                        <button type="submit">Update</button>
-                    </form>
+                    @isset($category)
+                        <form action="{{ route('categories.update', $category) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <input type="text" name="name" value="{{ $category->name }}">
+                            <button type="submit">Update</button>
+                        </form>
+                    @else
+                        <p class="text-red-600">No category selected for editing.</p>
+                    @endisset
                 </div>
             </div>
         </div>
