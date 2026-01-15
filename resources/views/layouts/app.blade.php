@@ -14,7 +14,7 @@
 <body>
     <nav class="bg-gray-800">
         <div class="container mx-auto flex flex-wrap items-center justify-between p-4 max-w-8xl">
-            <a class="text-white text-xl font-semibold" href="{{ route('home') }}">Blog-app</a>
+            <a class="text-white text-xl font-semibold" href="{{ route('home') }}">Blog</a>
             <div class="space-x-4">
                 <a class="text-gray-300 hover:text-white" href="{{ route('home') }}">Blog</a>
                 <a class="text-gray-300 hover:text-white" href="{{ route('about') }}">About</a>
