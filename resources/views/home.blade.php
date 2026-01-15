@@ -12,13 +12,24 @@
             <div class="lg:col-span-2 space-y-6">
             <h2 class="text-2xl font-bold mb-4">Latest Posts</h2>
                 <!-- Featured blog post -->
+                @php
+                    $featuredPost = $posts->first();
+                @endphp
                 <article class="bg-white rounded-lg shadow overflow-hidden">
                     <img class="w-full h-48 object-cover" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="...">
                     <div class="p-6">
                         <div class="text-sm text-gray-500 mb-2">January 1, 2023</div>
-                        <h2 class="text-2xl font-bold mb-2">Featured Post Title</h2>
-                        <p class="text-gray-700 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a class="inline-block bg-blue-500 text-white px-4 py-2 rounded" href="#!">Read more →</a>
+                        <h2 class="text-2xl font-bold mb-2">
+                            {{ $featuredPost?->title ?? 'Featured Post Title' }}
+                        </h2>
+                        <p class="text-gray-700 mb-4">
+                            {{ $featuredPost ? substr($featuredPost->content, 0, 160) . '...' : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' }}
+                        </p>
+                        @if ($featuredPost)
+                            <a class="inline-block bg-blue-500 text-white px-4 py-2 rounded" href="{{ route('post.show', $featuredPost) }}">
+                                Read more →
+                            </a>
+                        @endif
                     </div>
                 </article>
 
@@ -32,7 +43,7 @@
                             <div class="text-sm text-gray-500 mb-2">January 1, 2023</div>
                             <h2 class="text-xl font-semibold mb-2"><a href="{{ route('post.show', $post) }}">{{ $post->title }}</h2>
                             <p class="text-gray-700 mb-4">{{ substr($post->content, 0, 100) }}...</p>
-                            <a class="inline-block bg-blue-500 text-white px-4 py-2 rounded" href="#!">Read more →</a>
+                            <a class="inline-block bg-blue-500 text-white px-4 py-2 rounded" href="{{ route('post.show', $post) }}">Read more →</a>
                         </div>
                     </article>
                     @endforeach
