@@ -8,6 +8,11 @@ class PostImageService
 {
     public function forPost(Post $post, int $width = 700, int $height = 350): string
     {
+        $overrides = config('post_images.overrides', []);
+        if (array_key_exists($post->id, $overrides)) {
+            return $overrides[$post->id];
+        }
+
         $parts = [];
 
         if (!empty($post->title)) {
@@ -20,11 +25,13 @@ class PostImageService
 
         $query = trim(implode(' ', $parts));
         if ($query === '') {
-            $query = 'blog';
+            $query = config('post_images.fallback_query', 'blog');
         }
 
         $encodedQuery = rawurlencode($query);
 
-        return "https://source.unsplash.com/{$width}x{$height}/?{$encodedQuery}";
+        $base = rtrim(config('post_images.api_base', 'https://source.unsplash.com'), '/');
+
+        return "{$base}/{$width}x{$height}/?{$encodedQuery}";
     }
 }
