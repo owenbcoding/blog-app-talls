@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with('category')->latest()->get();
+        $categories = Category::orderBy('name')->get();
+        return view('posts.index', compact('posts', 'categories'));
     }
 
     /**
@@ -20,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -28,7 +31,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        Post::create($validated);
+
+        return redirect()->route('posts.index')->with('status', 'Post created.');
     }
 
     /**
@@ -36,7 +47,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $post->load('category');
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -52,7 +64,15 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        $post->update($validated);
+
+        return redirect()->route('posts.index')->with('status', 'Post updated.');
     }
 
     /**
@@ -60,6 +80,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index')->with('status', 'Post deleted.');
     }
 }
