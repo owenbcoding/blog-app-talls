@@ -12,8 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('categories.edit', compact('categories'));
+        $categories = Category::orderBy('name')->get();
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -29,7 +29,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        Category::create($validated);
+
+        return redirect()
+            ->route('categories.index')
+            ->with('status', 'Category created.');
     }
 
     /**
@@ -37,7 +45,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return redirect()->route('categories.edit', $category);
     }
 
     /**
@@ -45,7 +53,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -53,7 +61,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        $category->update($validated);
+
+        return redirect()
+            ->route('categories.index')
+            ->with('status', 'Category updated.');
     }
 
     /**
@@ -61,6 +77,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()
+            ->route('categories.index')
+            ->with('status', 'Category deleted.');
     }
 }
