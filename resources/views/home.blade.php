@@ -16,7 +16,11 @@
                     $featuredPost = $posts->first();
                 @endphp
                 <article class="bg-white rounded-lg shadow overflow-hidden">
-                    <img class="w-full h-48 object-cover" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="...">
+                    <img
+                        class="w-full h-48 object-cover"
+                        src="{{ $featuredPost ? $featuredPost->imageUrl(850, 350) : 'https://dummyimage.com/850x350/dee2e6/6c757d.jpg' }}"
+                        alt="{{ $featuredPost?->title ?? 'Featured post image' }}"
+                    >
                     <div class="p-6">
                         <div class="text-sm text-gray-500 mb-2">January 1, 2023</div>
                         <h2 class="text-2xl font-bold mb-2">
@@ -38,7 +42,11 @@
                     <!-- Blog post -->
                     @foreach ($posts as $post)
                     <article class="bg-white rounded-lg shadow overflow-hidden">
-                        <img class="w-full h-48 object-cover" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="...">
+                        <img
+                            class="w-full h-48 object-cover"
+                            src="{{ $post->imageUrl(700, 350) }}"
+                            alt="{{ $post->title }}"
+                        >
                         <div class="p-4">
                             <div class="text-sm text-gray-500 mb-2">January 1, 2023</div>
                             <h2 class="text-xl font-semibold mb-2"><a href="{{ route('post.show', $post) }}">{{ $post->title }}</h2>

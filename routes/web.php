@@ -6,7 +6,7 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $posts = \App\Models\Post::latest()->get();
+    $posts = \App\Models\Post::with('category')->latest()->get();
     $categories = \App\Models\Category::all();
     return view('home', compact('posts', 'categories'));
 })->name('home');
