@@ -14,9 +14,9 @@ class PostSeeder extends Seeder
     {
         $posts = [
             [
-                'title' => 'Getting Started with Laravel 12',
-                'content' => 'Laravel 12 brings exciting new features and improvements to the framework. In this post, we\'ll explore the latest updates including streamlined application structure, improved performance, and new developer tools that make building web applications faster and more enjoyable.',
-                'category_id' => 1, // Technology
+                'title' => 'The Joy of Reading: Building a Daily Reading Habit',
+                'content' => 'Reading has the power to transform your mind and enrich your life. In this post, we\'ll explore practical strategies for building a daily reading habit, choosing the right books, and creating a reading routine that fits seamlessly into your lifestyle. Discover how just 20 minutes of reading each day can expand your knowledge, improve focus, and provide much-needed mental relaxation.',
+                'category_id' => 2, // Lifestyle
             ],
             [
                 'title' => '10 Tips for a Balanced Lifestyle',
