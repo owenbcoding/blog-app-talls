@@ -10,7 +10,7 @@ class PostImageService
     {
         // Custom images for specific posts
         $customImages = [
-            1 => 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg', // Laravel logo
+            1 => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w={w}&h={h}&fit=crop', // Reading - books and coffee
             2 => 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w={w}&h={h}&fit=crop', // Balanced lifestyle - meditation/wellness
             3 => 'https://images.unsplash.com/photo-1528181304800-259b08848526?w={w}&h={h}&fit=crop', // Southeast Asia - Thailand temples
             4 => 'https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w={w}&h={h}&fit=crop&q=85', // Fresh pasta
