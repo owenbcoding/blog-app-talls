@@ -14,8 +14,8 @@ class PostSeeder extends Seeder
     {
         $posts = [
             [
-                'title' => 'Getting Started with Laravel 11',
-                'content' => 'Laravel 11 brings exciting new features and improvements to the framework. In this post, we\'ll explore the latest updates including streamlined application structure, improved performance, and new developer tools that make building web applications faster and more enjoyable.',
+                'title' => 'Getting Started with Laravel 12',
+                'content' => 'Laravel 12 brings exciting new features and improvements to the framework. In this post, we\'ll explore the latest updates including streamlined application structure, improved performance, and new developer tools that make building web applications faster and more enjoyable.',
                 'category_id' => 1, // Technology
             ],
             [
