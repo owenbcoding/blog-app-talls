@@ -9,6 +9,11 @@
 
     <div class="container mx-auto px-4">
         <div class="bg-white rounded-lg shadow overflow-hidden">
+            <img
+                class="w-full h-64 {{ $post->id === 1 ? 'object-contain bg-gray-50' : 'object-cover' }}"
+                src="{{ $post->imageUrl(1000, 500) }}"
+                alt="{{ $post->title }}"
+            >
             <div class="p-6 text-gray-900 space-y-4">
                 <p class="text-sm text-gray-500">
                     Category: {{ $post->category?->name ?? 'Uncategorized' }}
