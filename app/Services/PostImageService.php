@@ -13,7 +13,7 @@ class PostImageService
             1 => 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg', // Laravel logo
             2 => 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w={w}&h={h}&fit=crop', // Balanced lifestyle - meditation/wellness
             3 => 'https://images.unsplash.com/photo-1528181304800-259b08848526?w={w}&h={h}&fit=crop', // Southeast Asia - Thailand temples
-            4 => 'https://images.unsplash.com/photo-1556761223-4c4282c73f77?w={w}&h={h}&fit=crop', // Homemade pasta
+            4 => 'https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w={w}&h={h}&fit=crop&q=85', // Fresh pasta
         ];
         
         if (isset($customImages[$post->id])) {
