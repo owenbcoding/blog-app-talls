@@ -10,7 +10,7 @@
     <div class="container mx-auto px-4">
         <div class="bg-white rounded-lg shadow overflow-hidden">
             <img
-                class="w-full h-64 {{ $post->id === 1 ? 'object-contain bg-gray-50' : 'object-cover' }}"
+                class="w-full h-64 object-cover"
                 src="{{ $post->imageUrl(1000, 500) }}"
                 alt="{{ $post->title }}"
             >
