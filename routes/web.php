@@ -31,7 +31,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('posts', PostController::class)->middleware('is_admin');
     });
     
-
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['verified'])->name('dashboard');
