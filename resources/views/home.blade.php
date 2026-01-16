@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="py-5 bg-gray-100 border-b mb-4 h-60">
-        <div class="container mx-auto text-center mt-16">
+    <header class="py-5 bg-gray-100 border-b mb-4 h-60 relative overflow-hidden">
+        <div class="container mx-auto text-center mt-16 relative">
             <h1 class="text-3xl font-bold">Blog</h1>
         </div>
     </header>
