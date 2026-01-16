@@ -23,6 +23,8 @@ class PostController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
+
         return redirect()->route('posts.index');
     }
 
@@ -48,6 +50,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $post->load('category');
+        
         return view('posts.show', compact('post'));
     }
 
@@ -56,7 +59,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     /**
