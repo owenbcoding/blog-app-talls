@@ -19,7 +19,8 @@ composer install
 
 App: http://localhost — Vite: http://localhost:5173
 
-## Deploying without a database (Laravel Cloud)
+## Deploying (Laravel Cloud)
 
-- **Posts from files:** set `POSTS_SOURCE=files` and add Markdown files to `resources/posts/`. See **[docs/POSTS-SOURCE.md](docs/POSTS-SOURCE.md)**.
-- **Bundled SQLite:** run `php artisan db:copy-mariadb-to-sqlite` (with MariaDB in .env), then use SQLite and commit `database/database.sqlite`. Same doc has details.
+- **Build & deploy commands:** see **[docs/LARAVEL-CLOUD.md](docs/LARAVEL-CLOUD.md)** (build commands, deploy commands, and why not to run `db:copy-mariadb-to-sqlite` on Cloud).
+- **Without a database for posts:** set `POSTS_SOURCE=files` and use Markdown in `resources/posts/`. See **[docs/POSTS-SOURCE.md](docs/POSTS-SOURCE.md)**.
+- **Bundled SQLite:** run `db:copy-mariadb-to-sqlite` locally, commit `database/database.sqlite`, then set SQLite in Cloud env. Same doc has details.
