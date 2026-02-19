@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Services\FilePostRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostController extends Controller
 {
@@ -42,10 +44,16 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(string $slugOrId)
     {
-        $post->load('category');
-        
+        if (config('posts.source') === 'files') {
+            $post = app(FilePostRepository::class)->findBySlug($slugOrId);
+            if ($post === null) {
+                throw new NotFoundHttpException;
+            }
+            return view('posts.show', compact('post'));
+        }
+        $post = Post::with('category')->findOrFail($slugOrId);
         return view('posts.show', compact('post'));
     }
 

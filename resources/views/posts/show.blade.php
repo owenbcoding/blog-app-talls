@@ -16,10 +16,10 @@
             >
             <div class="p-6 text-gray-900 space-y-4">
                 <p class="text-sm text-gray-500">
-                    Category: {{ $post->category?->name ?? 'Uncategorized' }}
+                    Category: {{ $post->category?->name ?? $post->category_name ?? 'Uncategorized' }}
                 </p>
                 <div class="prose max-w-none">
-                    {{ $post->content }}
+                    {!! $post->getContentHtml() !!}
                 </div>
                 <a href="{{ route('home') }}" class="text-blue-600 hover:underline">
                     Back to posts

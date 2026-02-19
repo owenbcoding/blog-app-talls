@@ -4,11 +4,23 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactController;
+use App\Models\Category;
+use App\Models\Post;
+use App\Services\FilePostRepository;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $posts = \App\Models\Post::with('category')->latest()->get();
-    $categories = \App\Models\Category::all();
+    if (config('posts.source') === 'files') {
+        $repo = app(FilePostRepository::class);
+        $posts = $repo->all(request('category'));
+        $categories = $repo->getCategories();
+    } else {
+        $posts = Post::with('category')->latest()->get();
+        if (request('category')) {
+            $posts = $posts->where('category_id', request('category'));
+        }
+        $categories = Category::orderBy('name')->get();
+    }
     return view('home', compact('posts', 'categories'));
 })->name('home');
 
@@ -24,7 +36,7 @@ Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:5,1')
     ->name('contact.store');
 
-Route::get('/post/{post}', [\App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+Route::get('/post/{slugOrId}', [PostController::class, 'show'])->name('post.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -21,8 +21,8 @@
                 @foreach ($categories as $category)
                     <li>
                         <a
-                            href="{{ route('home', ['category' => $category->id]) }}"
-                            class="px-3 py-1 rounded-full border text-sm {{ request('category') == $category->id ? 'bg-blue-600 text-white border-blue-600' : 'text-gray-700 border-gray-300 hover:border-gray-400' }}"
+                            href="{{ route('home', ['category' => $category->id ?? $category->value]) }}"
+                            class="px-3 py-1 rounded-full border text-sm {{ request('category') == ($category->id ?? $category->value) ? 'bg-blue-600 text-white border-blue-600' : 'text-gray-700 border-gray-300 hover:border-gray-400' }}"
                         >
                             {{ $category->name }}
                         </a>
@@ -45,10 +45,10 @@
                             alt="{{ $post->title }}"
                         >
                         <div class="p-4">
-                            <div class="text-sm text-gray-500 mb-2">January 1, 2023</div>
-                            <h2 class="text-xl font-semibold mb-2"><a href="{{ route('post.show', $post) }}">{{ $post->title }}</a></h2>
-                            <p class="text-gray-700 mb-4">{{ substr($post->content, 0, 100) }}...</p>
-                            <a class="inline-block bg-blue-500 text-white px-4 py-2 rounded" href="{{ route('post.show', $post) }}">Read more →</a>
+                            <div class="text-sm text-gray-500 mb-2">{{ ($post->date ?? $post->created_at)?->format('F j, Y') }}</div>
+                            <h2 class="text-xl font-semibold mb-2"><a href="{{ route('post.show', ['slugOrId' => $post->getRouteKey()]) }}">{{ $post->title }}</a></h2>
+                            <p class="text-gray-700 mb-4">{{ $post->getExcerpt(100) }}</p>
+                            <a class="inline-block bg-blue-500 text-white px-4 py-2 rounded" href="{{ route('post.show', ['slugOrId' => $post->getRouteKey()]) }}">Read more →</a>
                         </div>
                     </article>
                     @endforeach

@@ -19,4 +19,15 @@ class Post extends Model
     {
         return app(PostImageService::class)->forPost($this, $width, $height);
     }
+
+    public function getContentHtml(): string
+    {
+        return nl2br(e($this->content));
+    }
+
+    public function getExcerpt(int $length = 100): string
+    {
+        $text = strip_tags($this->content);
+        return \Illuminate\Support\Str::limit($text, $length);
+    }
 }
